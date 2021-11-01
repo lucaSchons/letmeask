@@ -78,19 +78,26 @@ export function AdminRoom(){
                                 key={question.id}
                                 content={question.content}
                                 author={question.author}
+                                isAnswered={question.isAnswered}
+                                isHighlighted={question.isHighlighted}
                             >
-                                <button
-                                    type="button"
-                                    onClick={() => handleCheckQuestionAsAnswered(question.id)}
-                                >
-                                    <img src={checkImg} alt="Checar pergunta" />
-                                </button>
-                                <button
-                                    type="button"
-                                    onClick={() => handleHighlightQuestion(question.id)}
-                                >
-                                    <img src={answerImg} alt="Dar destaque a pergunta" />
-                                </button>
+                                {!question.isAnswered && (
+                                    <>  
+                                        <button
+                                            type="button"
+                                            onClick={() => handleCheckQuestionAsAnswered(question.id)}
+                                        >
+                                            <img src={checkImg} alt="Checar pergunta" />
+                                        </button>
+                                        <button
+                                            type="button"
+                                            onClick={() => handleHighlightQuestion(question.id)}
+                                        >
+                                            <img src={answerImg} alt="Dar destaque a pergunta" />
+                                        </button>
+                                    </>
+                                )}
+                                
 
                                 <button
                                     type="button"
